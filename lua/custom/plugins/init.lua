@@ -3,7 +3,15 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  { 'tpope/vim-rails' },
+  {
+    'tpope/vim-rails',
+    config = function()
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'eruby.yaml',
+        command = 'set filetype=yaml',
+      })
+    end,
+  },
   { 'tpope/vim-ragtag' },
   { 'tpope/vim-surround' },
   {
